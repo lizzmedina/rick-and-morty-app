@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Results } from '../../interfaces.ts/Character.interface';
 
-export const GET_CHARACTERS = createAsyncThunk('personajes/GET_CHARACTERS', async (url: string ) : Promise<Results>=> {
-    const response = await fetch(url);
+export const GET_CHARACTERS = createAsyncThunk('personajes/GET_CHARACTERS', async (urlPeticion: string | null ) : Promise<Results>=> {
+    if (urlPeticion){
+        const response = await fetch(urlPeticion);
     const data = await response.json();
     const results = {
         characterResults: data.results,
@@ -11,4 +12,13 @@ export const GET_CHARACTERS = createAsyncThunk('personajes/GET_CHARACTERS', asyn
     };
     console.log(data);    
     return results;
+    }
+    return new Promise<Results>((resolve, reject) => {
+        const results = {
+            characterResults: [],
+            next: '',
+            prev: '',
+        };
+        return results;
+    })
 });

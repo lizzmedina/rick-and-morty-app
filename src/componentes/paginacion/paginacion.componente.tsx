@@ -12,16 +12,15 @@ import { GET_CHARACTERS } from '../../store/slices/thunk.characters';
  * @returns un JSX element 
  */
 const Paginacion = () => {
-    const {characters, isLoading, isError, next, prev, url} = useAppSelector((state) => state.characterAll);
+    const { next,  prev} = useAppSelector((state) => state.characterAll);
     const dispatch = useAppDispatch();
 
-    // const handlePaginationNext = (urlNext : string | null ) => {  
-    //    url  
-    // }
-
+    const handlePaginationNext =() =>{
+        dispatch(GET_CHARACTERS(next));
+    }
     return <div className="paginacion">
-        <button disabled={true} className={"primary"}>Anterior</button>
-        <button  disabled={false} className={"primary"}>Siguiente</button>
+        <button  disabled={!prev} className={"primary"}>Anterior</button>
+        <button onClick={handlePaginationNext} disabled={!next} className={"primary"}>Siguiente</button>
     </div>
 }
 
