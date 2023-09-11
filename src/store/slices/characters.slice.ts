@@ -8,7 +8,8 @@ type CharacterState = {
     isLoading: boolean,
     isError: string | null,
     prev: string | null,
-    next : string  |null
+    next : string  |null,
+    favorite : boolean
 }
 const initialState : CharacterState = {
     url : 'https://rickandmortyapi.com/api/character',
@@ -16,13 +17,14 @@ const initialState : CharacterState = {
     isLoading: true,
     isError : null,
     prev: '',
-    next : ''
+    next : '',
+    favorite : false
 }
 
 export const charactersSlice = createSlice({
     name: 'character', 
     initialState ,
-    reducers : {
+    reducers : {       
     },
     extraReducers : (builder) => {        
         builder.addCase(GET_CHARACTERS.pending, (state)=>{
@@ -32,7 +34,7 @@ export const charactersSlice = createSlice({
             state.characters= action.payload.characterResults;
             state.next= action.payload.next;
             state.prev= action.payload.prev;
-            state.isLoading = false;
+            state.isLoading = false;            
         })       
         builder.addCase(GET_CHARACTERS.rejected, ( state, action ) =>{
             state.isLoading = false;                        
@@ -41,4 +43,5 @@ export const charactersSlice = createSlice({
     }
 });
 const characterReducer = charactersSlice.reducer;
+//export const {} = charactersSlice.actions;
 export default characterReducer ;

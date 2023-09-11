@@ -1,7 +1,6 @@
-import { CharacterCard } from '../../interfaces.ts/CharacterCard.interface';
+import { Character } from '../../interfaces.ts/Character.interface';
 import BotonFavorito from '../botones/boton-favorito.componente';
 import './tarjeta-personaje.css';
-
 /**
  * Tarjeta para cada personaje dentro de la grilla de personajes. 
  * 
@@ -10,13 +9,13 @@ import './tarjeta-personaje.css';
  * 
  * @returns un JSX element 
  */
-const TarjetaPersonaje = ({name, image, favorite} : CharacterCard) => {
-        
+const TarjetaPersonaje = ({name, image, isFavApi, id} : Character) => {
+    
     return <div className="tarjeta-personaje">
         <img src={image} alt={name}/>
         <div className="tarjeta-personaje-body">
             <span>{name}</span>
-            <BotonFavorito esFavorito={false} onClick={()=> {}} />
+            <BotonFavorito id={id}  name = {name} image={image} isFavApi={isFavApi}  />
         </div>
     </div>
 }

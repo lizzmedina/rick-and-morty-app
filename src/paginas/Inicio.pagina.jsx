@@ -11,16 +11,18 @@ import Paginacion from "../componentes/paginacion/paginacion.componente";
  * @returns la pagina de inicio
  */
 const PaginaInicio = () => {
-    return <div className="container">
-        <div className="actions">
-            <h3>Catálogo de Personajes</h3>
-            <button className="danger">Test Button</button>
+    return (
+        <div className="container">
+            <div className="actions">
+                <h3>Catálogo de Personajes</h3>
+                <button className="danger">Limpiar Filtro</button>
+            </div>
+            <Filtros />
+            <Paginacion />
+            <GrillaPersonajes />
+            <Paginacion />
         </div>
-        <Filtros />
-        <Paginacion />
-        <GrillaPersonajes />
-        <Paginacion />
-    </div>
+    )    
 }
 
 export default PaginaInicio
