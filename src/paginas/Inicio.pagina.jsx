@@ -1,7 +1,7 @@
-import Filtros from "../componentes/personajes/filtros.componente"
-import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente"
+import Filtros from "../componentes/personajes/filtros.componente";
+import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
 import Paginacion from "../componentes/paginacion/paginacion.componente";
- 
+
 /**
  * Esta es la pagina principal. Aquí se debera ver el panel de filtros junto con la grilla de personajes.
  * 
@@ -18,11 +18,11 @@ const PaginaInicio = () => {
                 <button className="danger">Limpiar Filtro</button>
             </div>
             <Filtros />
-            <Paginacion />
+            <Paginacion/>
             <GrillaPersonajes />
             <Paginacion />
         </div>
     )    
 }
 
-export default PaginaInicio
+export default PaginaInicio;

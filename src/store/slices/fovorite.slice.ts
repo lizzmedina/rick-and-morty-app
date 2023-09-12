@@ -16,7 +16,6 @@ export const favoriteCharactersSlice = createSlice({
   initialState,
   reducers: {
     TOGGLE_FAVORITES: (state, action: PayloadAction<Character>) => {      
-
       const selectedCard = action.payload;
       const isFavorite = state.favorites.find(
         (fav) => fav.id === selectedCard.id
@@ -31,8 +30,11 @@ export const favoriteCharactersSlice = createSlice({
         state.favorites.push(selectedCard);
       }      
     },
+    DELETE_ALL : (state, action: PayloadAction<Character>) => {
+      state.favorites = [];
+    }
   },
 });
 const favoriteReducer = favoriteCharactersSlice.reducer;
-export const { TOGGLE_FAVORITES } = favoriteCharactersSlice.actions;
+export const { TOGGLE_FAVORITES, DELETE_ALL } = favoriteCharactersSlice.actions;
 export default favoriteReducer;

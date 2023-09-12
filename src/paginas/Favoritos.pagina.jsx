@@ -1,5 +1,6 @@
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
-import { useAppSelector } from "../store/store";
+import { DELETE_ALL } from "../store/slices/fovorite.slice";
+import { useAppDispatch, useAppSelector } from "../store/store";
 /**
  * Esta es la pagina de favoritos. Aquí se deberan ver todos los personajes marcados como favoritos
  * 
@@ -10,12 +11,16 @@ import { useAppSelector } from "../store/store";
  */
 const PaginaFavoritos = () => {
     let {favorites} = useAppSelector((state) => state.favCharactersAll);  
-    //console.log('favorites',favorites);
+    const dispatch = useAppDispatch();
+
+    const handleDeleteAll = () => {
+        dispatch(DELETE_ALL());
+    }
     return (
         <div className="container">
             <div className="actions">
                 <h3>Personajes Favoritos</h3>
-                <button className="danger">Eliminar todos</button>
+                <button className="danger" onClick={handleDeleteAll}>Eliminar todos</button>
             </div>
             <div>     
                 {
