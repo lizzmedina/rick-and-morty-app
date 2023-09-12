@@ -1,6 +1,6 @@
 import "./boton-favorito.css";
 import { useAppDispatch, useAppSelector} from "../../store/store";
-import {  TOGGLE_FAVORITES } from "../../store/slices/fovorite.slice";
+import {  TOGGLE_FAVORITES } from "../../store/slices/favorites/fovorite.slice";
 import { useEffect } from "react";
 import { Character } from "../../interfaces.ts/Character.interface";
 

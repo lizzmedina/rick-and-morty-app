@@ -1,5 +1,5 @@
 import GrillaPersonajes from "../componentes/personajes/grilla-personajes.componente";
-import { DELETE_ALL } from "../store/slices/fovorite.slice";
+import { DELETE_ALL } from "../store/slices/favorites/fovorite.slice";
 import { useAppDispatch, useAppSelector } from "../store/store";
 /**
  * Esta es la pagina de favoritos. Aquí se deberan ver todos los personajes marcados como favoritos

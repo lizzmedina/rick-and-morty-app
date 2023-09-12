@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import './paginacion.css';
-import { GET_CHARACTERS } from '../../store/slices/thunk.characters';
+import { GET_CHARACTERS } from '../../store/slices/characters/thunk.characters';
 
 /**
  * 
@@ -10,7 +10,7 @@ const Paginacion = () => {
     const { next,  prev} = useAppSelector((state) => state.characterAll);
     const dispatch = useAppDispatch();
 
-    const handlePaginationNext =() =>{
+    const handlePaginationNext =() =>{        
         dispatch(GET_CHARACTERS(next));
     }
     const handlePaginationPrev =() =>{

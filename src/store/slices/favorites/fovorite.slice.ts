@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Character } from "../../interfaces.ts/Character.interface";
+import { Character } from "../../../interfaces.ts/Character.interface";
 
 export type CharacterAddState = {
   favorites: Character[];

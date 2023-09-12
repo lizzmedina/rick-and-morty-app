@@ -1,6 +1,6 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
-import { Character, Results } from '../../interfaces.ts/Character.interface';
-import { GET_CHARACTERS } from './thunk.characters';
+import { Character, Results } from '../../../interfaces.ts/Character.interface';
+import { GET_CHARACTERS,  GET_FILTRATE_CHARACTERS  } from './thunk.characters';
 
 type CharacterState = {    
     url : string,  
@@ -24,7 +24,7 @@ const initialState : CharacterState = {
 export const charactersSlice = createSlice({
     name: 'character', 
     initialState ,
-    reducers : {       
+    reducers : {  
     },
     extraReducers : (builder) => {        
         builder.addCase(GET_CHARACTERS.pending, (state)=>{
@@ -39,9 +39,22 @@ export const charactersSlice = createSlice({
         builder.addCase(GET_CHARACTERS.rejected, ( state, action ) =>{
             state.isLoading = false;                        
             state.isError = action.error.message ??  'no fue posible ejecutar la llamada a la API los personajes';
-        })        
+        })  
+        builder.addCase(GET_FILTRATE_CHARACTERS.pending, (state) => {
+            state.isLoading = true;
+          })
+          builder.addCase(GET_FILTRATE_CHARACTERS.fulfilled, (state, action: PayloadAction<Results>) => {
+            state.characters = action.payload.characterResults;
+            state.next = action.payload.next;
+            state.prev= action.payload.prev;
+            state.isLoading = false;
+          })
+          builder.addCase(GET_FILTRATE_CHARACTERS.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = action.error.message ?? "no fue posible filtrar los personajes";
+          })  
     }
 });
 const characterReducer = charactersSlice.reducer;
-//export const {} = charactersSlice.actions;
+//export const {DELETE_ALL} = charactersSlice.actions;
 export default characterReducer ;

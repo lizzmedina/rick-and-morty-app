@@ -1,6 +1,6 @@
 import './filtros.css';
 import { useAppDispatch } from '../../store/store';
-import { GET_FILTRATE_CHARACTERS } from '../../store/slices/thunk.characters';
+import { GET_FILTRATE_CHARACTERS } from '../../store/slices/characters/thunk.characters';
 
 const Filtros = () => {
 

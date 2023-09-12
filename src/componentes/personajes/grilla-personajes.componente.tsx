@@ -1,31 +1,32 @@
 import { useEffect } from 'react';
-import { GET_CHARACTERS, GET_FILTRATE_CHARACTERS } from '../../store/slices/thunk.characters';
+import { GET_CHARACTERS} from '../../store/slices/characters/thunk.characters';
 import './grilla-personajes.css';
 import TarjetaPersonaje from './tarjeta-personaje.componente';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 
 type GrillaPersonajesProps={
     filterFav? : boolean,
+    filter?: boolean,
 }
 /**
  * Grilla de personajes para la pagina de inicio
  * 
  * @returns un JSX element 
  */
-const GrillaPersonajes = ({ filterFav = false }: GrillaPersonajesProps) => {
+const GrillaPersonajes = ({ filterFav = false, filter=false }: GrillaPersonajesProps) => {
 
     const { characters, isLoading, isError, url } = useAppSelector((state) => state.characterAll);
     const { favorites } = useAppSelector((state) => state.favCharactersAll);
-    const dispatch = useAppDispatch();
-  
-    const {filtrados} = useAppSelector((state) => state.filterCharactersAll);
+    const dispatch = useAppDispatch();  
   
     useEffect(() => {
       dispatch(GET_CHARACTERS(url));
     }, [url]);
-  
     
-    const filteredCharacters = filterFav ? favorites : (filtrados || characters);
+
+    const filteredCharacters = filterFav  ? favorites : characters;
+
+
     return (
       <div className="grilla-personajes">
         {isLoading ? <p> Loading ... </p> :

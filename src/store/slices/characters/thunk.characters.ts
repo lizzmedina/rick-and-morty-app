@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Character, Results } from '../../interfaces.ts/Character.interface';
+import { Character, Results } from '../../../interfaces.ts/Character.interface';
 
 export const GET_CHARACTERS = createAsyncThunk('personajes/GET_CHARACTERS', async (urlPeticion: string | null ) : Promise<Results>=> {
     if (urlPeticion){
@@ -22,6 +22,7 @@ export const GET_CHARACTERS = createAsyncThunk('personajes/GET_CHARACTERS', asyn
     })
 });
 export const GET_FILTRATE_CHARACTERS = createAsyncThunk('personajes/GET_FILTRATE_CHARACTERS', async (name: string): Promise<Results> => {
+
     try {
         const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}`);
         const data = await response.json();
