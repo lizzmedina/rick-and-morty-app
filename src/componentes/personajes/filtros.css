@@ -5,13 +5,21 @@
 }
 .filtros label {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
 }
 
-.filtros input[type="text"]{
+.filtros input[type="text"] {
   flex-grow: 1;
-  padding: 15px 20px; 
+  padding: 15px 20px;
   border-radius: 3px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #97ce4c;
+  transition: box-shadow 0.3s ease; 
+}
+
+.filtros input[type="text"]:hover {
+  box-shadow: 0.5px 0px 15px #e89ac7; 
+}
+.filtros .txtFilter {
+  font-size: 1rem;
 }

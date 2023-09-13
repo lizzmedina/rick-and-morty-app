@@ -10,9 +10,9 @@ const Filtros = () => {
     const handlerSearch = (e: any) => {
         dispatch(GET_FILTRATE_CHARACTERS(e.target.value));
     }
-    
+
     return <div className="filtros">
-        <label >Filtrar por nombre:</label>
+        <label className="txtFilter">Filtrar por nombre:</label>
         <input  
             id= "inputFilter" 
             type="text" 

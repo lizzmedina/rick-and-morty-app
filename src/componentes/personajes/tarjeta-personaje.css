@@ -8,12 +8,17 @@
   height: 300px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border: 1px solid #d0d0d0;
+  border: 3px solid #f2e105;
+  transition: box-shadow 0.3s ease; /* Agregamos una transición suave para el efecto */
+}
+
+.tarjeta-personaje > img:hover {
+  box-shadow: 0.5px 0px 15px #e89ac7; /* Cambiamos la sombra cuando se pasa el mouse */
 }
 
 .tarjeta-personaje > div.tarjeta-personaje-body {
   padding: 10px;
-  border: 1px solid #d0d0d0;
+  border: 4px solid #97ce4c;
   border-top: 0;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -22,4 +27,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #97ce4c;
+  transition: box-shadow 0.3s ease; 
+  color: black;
+}
+
+.tarjeta-personaje > div.tarjeta-personaje-body:hover {
+  box-shadow: 0.5px 0px 30px #97ce4c; 
 }
