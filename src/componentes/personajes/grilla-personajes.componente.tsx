@@ -6,14 +6,14 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 
 type GrillaPersonajesProps={
     filterFav? : boolean,
-    filter?: boolean,
 }
 /**
- * Grilla de personajes para la pagina de inicio
- * 
- * @returns un JSX element 
+ * @component
+ * @param {Object} props - Las propiedades del componente.
+ * @param {boolean} [props.filterFav=false] - Indica si se deben mostrar solo los personajes favoritos.
+ * @returns {JSX.Element} El componente de GrillaPersonajes.
  */
-const GrillaPersonajes = ({ filterFav = false, filter=false }: GrillaPersonajesProps) => {
+const GrillaPersonajes = ({ filterFav = false }: GrillaPersonajesProps) => {
 
     const { characters, isLoading, isError, url } = useAppSelector((state) => state.characterAll);
     const { favorites } = useAppSelector((state) => state.favCharactersAll);
@@ -23,9 +23,7 @@ const GrillaPersonajes = ({ filterFav = false, filter=false }: GrillaPersonajesP
       dispatch(GET_CHARACTERS(url));
     }, [url]);
     
-
     const filteredCharacters = filterFav  ? favorites : characters;
-
 
     return (
       <div className="grilla-personajes">

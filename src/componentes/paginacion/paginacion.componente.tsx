@@ -4,15 +4,23 @@ import { GET_CHARACTERS } from '../../store/slices/characters/thunk.characters';
 
 /**
  * 
- * @returns un JSX element 
+ *  @component
+ * @returns {JSX.Element}
  */
 const Paginacion = () => {
     const { next,  prev} = useAppSelector((state) => state.characterAll);
     const dispatch = useAppDispatch();
 
+    /**
+     * Maneja el evento onClick para cargar la página siguiente de personajes.
+     */
     const handlePaginationNext =() =>{        
         dispatch(GET_CHARACTERS(next));
     }
+    
+    /**
+     * Maneja el evento onClick para cargar la página anterior de personajes.
+     */
     const handlePaginationPrev =() =>{
         dispatch(GET_CHARACTERS(prev));
     }

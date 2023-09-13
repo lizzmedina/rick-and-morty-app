@@ -15,13 +15,14 @@ import TarjetaEpisodio from "../componentes/episodios/tarjeta-episodio.component
  * @returns la pagina de detalle
  */
 const PaginaDetalle = () => {
-    return <div className="container">
+
+    return (
+        <div className="container">
         <h3>Rick Sanchez</h3>
         <div className={"detalle"}>
             <div className={"detalle-header"}>
                 <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez"/>
-                <div className={"detalle-header-texto"}>
-
+            <div className={"detalle-header-texto"}>
                     <p>Rick Sanchez</p>
                     <p>Planeta: Earth</p>
                     <p>Genero: Male</p>
@@ -36,6 +37,8 @@ const PaginaDetalle = () => {
             <TarjetaEpisodio />
         </div>
     </div>
+    )
+   
 }
 
 export default PaginaDetalle

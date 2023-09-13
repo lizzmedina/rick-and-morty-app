@@ -6,16 +6,21 @@ import { useAppDispatch, useAppSelector } from "../store/store";
  * 
  * Uso: 
  * ``` <PaginaFavoritos /> ```
- * 
- * @returns la pagina de favoritos
+ * @component
+ * @returns {JSX.Element} 
  */
 const PaginaFavoritos = () => {
+
     let {favorites} = useAppSelector((state) => state.favCharactersAll);  
     const dispatch = useAppDispatch();
-
+    
+    /**
+     * Maneja el evento de eliminar todos los personajes favoritos.
+     */
     const handleDeleteAll = () => {
         dispatch(DELETE_ALL());
     }
+    
     return (
         <div className="container">
             <div className="actions">

@@ -5,12 +5,15 @@ import { useEffect } from "react";
 import { Character } from "../../interfaces.ts/Character.interface";
 
 /**
- * Boton que indica si un elemento es favorito o no, y da la posibilidad de marcarlo/desmarcarlo
+ *Componente para agregar o quitar personajes de la lista de favoritos.
  *
- * Deberás tipar las propiedades si usas este componente
- *
- *
- * @returns un JSX element
+ * @component
+ * @param {Character} props - Las propiedades del componente.
+ * @param {string} props.name - El nombre del personaje.
+ * @param {string} props.image - La URL de la imagen del personaje.
+ * @param {boolean} props.isFavApi - Indica si el personaje es marcado como favorito a través de una API.
+ * @param {string} props.id - El identificador único del personaje.
+ * @returns {JSX.Element} El componente BotonFavorito.
  */
 
 const BotonFavorito = ({ name, image, isFavApi, id } : Character) => {
@@ -20,6 +23,9 @@ const BotonFavorito = ({ name, image, isFavApi, id } : Character) => {
   const isFavorite = favorites.find( (fav) => fav.id === id );
   const src = isFavorite ? "/imagenes/star-filled.png" : "/imagenes/star.png";
 
+/**
+   * Maneja el evento onClick para agregar o quitar el personaje de favoritos.
+   */
   const AddFavorites = () => {
     dispatch(TOGGLE_FAVORITES({ name, image, isFavApi, id }));
   }

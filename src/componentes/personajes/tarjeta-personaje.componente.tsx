@@ -5,9 +5,9 @@ import './tarjeta-personaje.css';
  * Tarjeta para cada personaje dentro de la grilla de personajes. 
  * 
  * Deberás agregar las propiedades necesarias para mostrar los datos de los personajes
+ * @component
  * 
- * 
- * @returns un JSX element 
+ * @returns {JSX.Element}
  */
 const TarjetaPersonaje = ({name, image, isFavApi, id} : Character) => {
     

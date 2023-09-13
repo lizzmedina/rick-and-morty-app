@@ -30,7 +30,7 @@ export const favoriteCharactersSlice = createSlice({
         state.favorites.push(selectedCard);
       }      
     },
-    DELETE_ALL : (state, action: PayloadAction<Character>) => {
+    DELETE_ALL : (state) => {
       state.favorites = [];
     }
   },
