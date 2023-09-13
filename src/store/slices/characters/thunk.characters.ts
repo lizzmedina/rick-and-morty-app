@@ -38,6 +38,6 @@ export const GET_FILTRATE_CHARACTERS = createAsyncThunk('personajes/GET_FILTRATE
         };
         return results;
     } catch (error) {
-        throw new Error('No fue posible filtrar los personajes');
+        throw new Error('No esiten más conicidencias');
     }
 });
